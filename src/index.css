@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .section-visible {
+    @apply opacity-100 translate-y-0;
+  }
+  .section-hidden {
+    @apply opacity-0 translate-y-8;
+  }
+  .hero-pattern {
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(212, 160, 23, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139, 26, 26, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(27, 67, 50, 0.1) 0%, transparent 50%);
+  }
+  .punjab-border {
+    border-image: repeating-linear-gradient(90deg, #D4A017 0px, #D4A017 8px, #8B1A1A 8px, #8B1A1A 16px, #1B4332 16px, #1B4332 24px) 4;
+  }
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  .card-hover:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+  .btn-primary {
+    @apply bg-punjab-red text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-punjab-red-light hover:shadow-lg active:scale-95;
+  }
+  .btn-secondary {
+    @apply bg-punjab-mustard text-punjab-brown px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-punjab-mustard-light hover:shadow-lg active:scale-95;
+  }
+  .btn-outline {
+    @apply border-2 border-punjab-cream text-punjab-cream px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-punjab-cream hover:text-punjab-brown active:scale-95;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .text-shadow-sm {
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Review carousel */
+.carousel-track {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Punjabi pattern decoration */
+.punjabi-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23D4A01720' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* Floating WhatsApp button pulse */
+.whatsapp-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.4;
+  animation: pulse 2s ease-in-out infinite;
+}
